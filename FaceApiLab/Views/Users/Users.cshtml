@@ -1,0 +1,20 @@
+
+@{
+    ViewData["Title"] = "Personal";
+}
+@using FaceApiLab.Models
+@model List<PersonModel>
+<h2>Personals : @ViewBag.PersonGroupId</h2>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m[0].PersonId)</th>
+            <th>@Html.DisplayNameFor(m => m[0].Name)</th>
+        </tr>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>@Html.ActionLink(Model[i].PersonId.ToString(), "UserFaces", new { PersonGroupId = ViewBag.PersonGroupId, PersonId = Model[i].PersonId.ToString() })</td>
+                <td>@Html.DisplayFor(m => m[i].Name)</td>
+            </tr>
+        }
+    </table>

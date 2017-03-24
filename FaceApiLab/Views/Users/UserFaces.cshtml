@@ -1,0 +1,20 @@
+
+@{
+    ViewData["Title"] = "Personal Faces";
+}
+@using FaceApiLab.Models
+@model PersonModel
+<h2>Personals</h2>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.Faces[0].FaceId)</th>
+        <th></th>
+    </tr>
+    @for (int i = 0; i < Model.Faces.Count; i++)
+    {
+        <tr>
+            <td>@Html.ActionLink(Model.Faces[i].FaceId, "UserEdit")</td>
+            <td><img src="~/faces/@(Model.Faces[i].FaceId).jpg" width="200px" /></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,20 @@
+
+@{
+    ViewData["Title"] = "Personal Groups";
+}
+@using FaceApiLab.Models
+@model List<PersonGroupModel>
+<h2>Personal Groups</h2>
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m[0].PersonGroupId)</th>
+        <th>@Html.DisplayNameFor(m => m[0].Name)</th>
+    </tr>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <tr>
+            <td>@Html.ActionLink(Model[i].PersonGroupId, "Users", new { Model[i].PersonGroupId, })</td>
+            <td>@Html.DisplayFor(m => m[i].Name)</td>
+        </tr>
+    }
+</table>
